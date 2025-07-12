@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemalar</title>
+    <style>
+        .info-container {
+            margin: 20px 0;
+        }
+        .info-label {
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .info-icon {
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .info-content {
+            display: none;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            font-family: sans-serif;
+        }
+        pre {
+            margin: 0;
+        }
+        .hidden {
+            display: none;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 5px;
+        }
+        .text-red-500 {
+            color: #ef4444;
+        }
+        .text-green-600 {
+            color: #16a34a;
+        }
+        .text-yellow-600 {
+            color: #ca8a04;
+        }
+        .bg-gray-100 {
+            background-color: #f3f4f6;
+        }
+        .bg-white {
+            background-color: #ffffff;
+        }
+        .p-4 {
+            padding: 1rem;
+        }
+        .p-6 {
+            padding: 1.5rem;
+        }
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+        .max-w-md {
+            max-width: 28rem;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .font-bold {
+            font-weight: 700;
+        }
+        .font-semibold {
+            font-weight: 600;
+        }
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        .ml-4 {
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-container">
+        <div class="info-label" onclick="toggleContent('adjustments')">
+            Adjustment Values: <span class="info-icon">ℹ️</span>
+        </div>
+        <div id="adjustments" class="info-content">
+            <pre>
+=== Adjustment Values ===
+
+📈 Stock Indices:
+US30 | USA30 (Dow Jones) - 30
+US500 - 3
+US100 | NAS100 (Nasdaq) - 30
+UK100 - 3
+GER40 | DE40 | DAX - 30
+FRA40 - 30
+AUS200 - 3
+
+💰 Forex:
+EURUSD - 0.003
+USD CAD - 0.003
+ALL JPY - 0.3
+Others - 0.003
+      
+🪙 Precious Metals:
+XAUUSD - 3
+XAUEUR - 3
+SILVER USD - 0.3
+SILVER EUR - 0.3
+PALLADIUM - 3
+PLATINUM - 3
+
+₿ Crypto:
+BITCOIN - 300
+ETHUSD - 30
+ETHEUR - 30
+ETCUSD - 0.3
+SOLANA - 3
+XRP - 0.003
+BCHUSD -3
+AVAXUSD - 0.3
+LINKUSD - 0.3
+SOLUSD - 0.3
+LTCUSD - 0.3
+ADAUSD - 0.003
+UNI 0.03
+BNB 0.3
+DOT 0.03
+ETC 0.03
+IOTA 0.003
+NEAR 0.03
+DOGE 0.003
+ICP 0.03
+ALGO 0.003
+SUI 0.03
+LRC 0.0003
+ZEC 0.3
+
+📊 Bonds & Commodities:
+US10YR - 0.03
+USBOND - 0.03
+OIL - 0.3
+COPPER - 0.03
+NATURAL GAS - 0.03
+CORN - 0.03
+SOY - 3 (cent per bushel eg. 1050)
+SOY - 0.03 (dollar per bushel eg. 10.50)
+            </pre>
+        </div>
+    </div>
+
+    <div class="info-container">
+        <div class="info-label" onclick="toggleContent('jantung')">
+            Jantung: <span class="info-icon">ℹ️</span>
+        </div>
+        <div id="jantung" class="info-content">
+            <div class="max-w-md mx-auto bg-white p-6 rounded-xl shadow-lg space-y-6">
+                <h1 class="text-xl font-bold text-center">Checklist 4 Jantung</h1>
+
+                <!-- 1.1 Position -->
+                <div>
+                    <p class="font-semibold">1.1 Codes Position</p>
+                    <label><input type="radio" name="position" value="buy" /> Buy</label>
+                    <label class="ml-4"><input type="radio" name="position" value="sell" /> Sell</label>
+                </div>
+
+                <!-- 1.2 Timeframe -->
+                <div>
+                    <p class="font-semibold">1.2 Codes Timeframe</p>
+                    <label><input type="checkbox" id="h1" /> H1</label>
+                    <label class="ml-4"><input type="checkbox" id="h4" /> H4</label>
+                </div>
+
+                <!-- 2. Origin Value Day -->
+                <div>
+                    <p class="font-semibold">2. Origin Value Day</p>
+                    <label><input type="radio" name="vd" value="in" /> Belum Cross VD</label>
+                    <label class="ml-4"><input type="radio" name="vd" value="above" /> Origin Cross VD</label>
+                </div>
+
+                <!-- 3. Momentum -->
+                <div>
+                    <p class="font-semibold">3. Momentum</p>
+                    <label><input type="radio" name="momentum" value="done" /> Dah Habis</label>
+                    <label class="ml-4"><input type="radio" name="momentum" value="notyet" /> Belum Habis.</label>
+                </div>
+
+                <!-- 4. YV -->
+                <div>
+                    <p class="font-semibold">4. YV Status & Link</p>
+                    <label><input type="radio" name="yv" value="notyet" /> YV Belum Matang (AM)</label>
+                    <label class="ml-4"><input type="radio" name="yv" value="mature" /> YV Matang (PM)</label>
+                </div>
+
+                <!-- Link Belum Matang -->
+                <div id="belumMatangSection" class="hidden">
+                    <p class="font-semibold text-center">Link (YV Belum Matang)</p>
+                    <table class="w-full text-sm mt-2 mx-auto">
+                        <tbody>
+                            <tr><td class="text-left"><label><input type="checkbox" id="db_pdb" /> DB - PDB</label></td>
+                            <td class="text-left"><label><input type="checkbox" id="db_yvb" /> DB - YVB</label></td></tr>
+                            <tr><td class="text-left"><label><input type="checkbox" id="ds_pds" /> DS - PDS</label></td>
+                            <td class="text-left"><label><input type="checkbox" id="ds_yvs" /> DS - YVS</label></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Link Matang -->
+                <div id="matangSection" class="hidden">
+                    <p class="font-semibold text-center">Link (YV Matang)</p>
+                    <table class="w-full text-sm mt-2 mx-auto">
+                        <tbody>
+                            <tr><td class="text-left"><label><input type="checkbox" id="matang_db_yvb" /> DB - YVB</label></td></tr>
+                            <tr><td class="text-left"><label><input type="checkbox" id="matang_ds_yvs" /> DS - YVS</label></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Result -->
+                <div class="mt-4 p-4 bg-gray-100 rounded-xl border" id="resultBox">
+                    <p class="text-center font-semibold">Sila lengkapkan di atas ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+
+        const inputs = document.querySelectorAll('input');
+        const resultBox = document.getElementById('resultBox');
+        const belumMatangSection = document.getElementById('belumMatangSection');
+        const matangSection = document.getElementById('matangSection');
+
+        inputs.forEach(input => {
+            input.addEventListener('change', evaluate);
+        });
+
+        function evaluate() {
+            const position = document.querySelector('input[name="position"]:checked')?.value;
+            const h1 = document.getElementById('h1').checked;
+            const h4 = document.getElementById('h4').checked;
+            const vd = document.querySelector('input[name="vd"]:checked')?.value;
+            const momentum = document.querySelector('input[name="momentum"]:checked')?.value;
+            const yv = document.querySelector('input[name="yv"]:checked')?.value;
+
+            if (belumMatangSection) belumMatangSection.classList.toggle('hidden', yv !== 'notyet');
+            if (matangSection) matangSection.classList.toggle('hidden', yv !== 'mature');
+
+            if (!(h1 && h4)) {
+                resultBox.innerHTML = '<p class="text-red-500 text-center">Syarat Codes: H1 dan H4 sama.</p>';
+                return;
+            }
+            if (vd !== 'above') {
+                resultBox.innerHTML = '<p class="text-red-500 text-center">Syarat VD: Perlu Cross VD dulu.</p>';
+                return;
+            }
+            if (momentum !== 'notyet') {
+                resultBox.innerHTML = '<p class="text-red-500 text-center">Syarat Momentum: Belum habis.</p>';
+                return;
+            }
+
+            let output = '';
+            let valid = false;
+
+            if (yv === 'notyet') {
+                const db_pdb = document.getElementById('db_pdb').checked;
+                const db_yvb = document.getElementById('db_yvb').checked;
+                const ds_pds = document.getElementById('ds_pds').checked;
+                const ds_yvs = document.getElementById('ds_yvs').checked;
+
+                const totalLink = [db_pdb, db_yvb, ds_pds, ds_yvs].filter(Boolean).length;
+                if (totalLink === 0) {
+                    resultBox.innerHTML = `<p class="text-red-500 text-center">Perlu ada link untuk SOP valid.</p>`;
+                    return;
+                }
+
+                // TP di RP/DB cases
+                if (position === 'buy') {
+                    // Case 1: DB-PDB✅ DB-YVB✅ DS-PDS❌ DS-YVS❌
+                    if (db_pdb && db_yvb && !ds_pds && !ds_yvs) {
+                        valid = true;
+                        output = 'Valid Buy – TP DB jika H4, TP RP jika H1';
+                    }
+                    // Case 2: DB-PDB✅ DB-YVB❌ DS-PDS❌ DS-YVS❌
+                    else if (db_pdb && !db_yvb && !ds_pds && !ds_yvs) {
+                        valid = true;
+                        output = 'Valid Buy – TP DB jika H4, TP RP jika H1';
+                    }
+                    // RLine cases for Buy
+                    // Case 1: DB-PDB✅ DB-YVB✅ DS-PDS✅ DS-YVS❌
+                    else if (db_pdb && db_yvb && ds_pds && !ds_yvs) {
+                        valid = true;
+                        output = 'Valid Buy – TP di RLine (H1) / TP RP(H4)';
+                    }
+                    // Case 2: DB-PDB✅ DB-YVB❌ DS-PDS✅ DS-YVS❌
+                    else if (db_pdb && !db_yvb && ds_pds && !ds_yvs) {
+                        valid = true;
+                        output = 'Valid Buy – TP di RLine (H1) / TP RP(H4)';
+                    }
+                }
+                else if (position === 'sell') {
+                    // Case 1: DB-PDB❌ DB-YVB❌ DS-PDS✅ DS-YVS✅
+                    if (!db_pdb && !db_yvb && ds_pds && ds_yvs) {
+                        valid = true;
+                        output = 'Valid Sell – TP DS jika H4, TP RP jika H1';
+                    }
+                    // Case 2: DB-PDB❌ DB-YVB❌ DS-PDS✅ DS-YVS❌
+                    else if (!db_pdb && !db_yvb && ds_pds && !ds_yvs) {
+                        valid = true;
+                        output = 'Valid Sell – TP DS jika H4, TP RP jika H1';
+                    }
+                    // RLine cases for Sell
+                    // Case 1: DB-PDB✅ DB-YVB❌ DS-PDS✅ DS-YVS✅
+                    else if (db_pdb && !db_yvb && ds_pds && ds_yvs) {
+                        valid = true;
+                        output = 'Valid Sell – TP di RLine (H1) / TP RP(H4)';
+                    }
+                    // Case 2: DB-PDB✅ DB-YVB❌ DS-PDS✅ DS-YVS❌
+                    else if (db_pdb && !db_yvb && ds_pds && !ds_yvs) {
+                        valid = true;
+                        output = 'Valid Sell – TP di RLine (H1) / TP RP(H4)';
+                    }
+                }
+            }
+
+            // YV Matang logic
+            if (yv === 'mature') {
+                const matang_db_yvb = document.getElementById('matang_db_yvb').checked;
+                const matang_ds_yvs = document.getElementById('matang_ds_yvs').checked;
+
+                if (matang_db_yvb && !matang_ds_yvs && position === 'buy') {
+                    valid = true;
+                    output = 'Valid Buy – TP DB jika H4, TP RP jika H1';
+                } else if (!matang_db_yvb && matang_ds_yvs && position === 'sell') {
+                    valid = true;
+                    output = 'Valid Sell – TP DB jika H4, TP RP jika H1';
+                } else if ((matang_db_yvb && matang_ds_yvs) || (!matang_db_yvb && !matang_ds_yvs)) {
+                    resultBox.innerHTML = `<p class="text-red-500 text-center">Belum cukup syarat untuk valid entry.</p>`;
+                    return;
+                }
+            }
+
+            if (!valid) {
+                resultBox.innerHTML = `<p class="text-yellow-600 text-center">Belum cukup syarat untuk valid entry.</p>`;
+            } else {
+                resultBox.innerHTML = `<p class="text-green-600 text-center font-semibold">${output}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
