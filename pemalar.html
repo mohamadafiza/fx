@@ -1,10 +1,26 @@
-<pre style="margin:0; font-family:sans-serif;">=== Adjustment Values ===
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemalar</title>
+    
+<label for="adjustment">Adjustment Values: 
+  <span class="info-icon" onclick="showAdjustments()">ℹ️</span>
+</label>
+
+<div id="adjustments-modal" style="display:none; background:#f9f9f9; padding:15px; border-radius:5px; margin-top:5px; border:1px solid #ddd;">
+  <pre style="margin:0; font-family:sans-serif;">
+=== Adjustment Values ===
 
 📈 Stock Indices:
-US30 - 30
+US30 | USA30 (Dow Jones) - 30
 US500 - 3
-US100 - 30
+US100 | NAS100 (Nasdaq) - 30
 UK100 - 3
+GER40 | DE40 | DAX - 30
+FRA40 - 30
+AUS200 - 3
 
 💰 Forex:
 EURUSD - 0.003
@@ -26,24 +42,41 @@ ETHUSD - 30
 ETHEUR - 30
 ETCUSD - 0.3
 SOLANA - 3
-XRP - 0.03 / 0.003
-BCHUSD 3
-AVAXUSD 0.3
-LINKUSD 0.3
-SOLUSD 0.3
-LTCUSD 0.3
-ADAUSD 0.003
-AVE 3
+XRP - 0.003
+BCHUSD -3
+AVAXUSD - 0.3
+LINKUSD - 0.3
+SOLUSD - 0.3
+LTCUSD - 0.3
+ADAUSD - 0.003
+UNI 0.03
 BNB 0.3
-BCH 3 
-XMR 3
+DOT 0.03
+ETC 0.03
+IOTA 0.003
+NEAR 0.03
+DOGE 0.003
+ICP 0.03
+ALGO 0.003
+SUI 0.03
+LRC 0.0003
+ZEC 0.3
 
-📊 Bonds &amp; Commodities:
+📊 Bonds & Commodities:
 US10YR - 0.03
 USBOND - 0.03
 OIL - 0.3
 COPPER - 0.03
 NATURAL GAS - 0.03
 CORN - 0.03
-SOY - 3 / 0.03
+SOY - 3 (cent per bushel eg. 1050)
+SOY - 0.03 (dollar per bushel eg. 10.50)
   </pre>
+</div>
+
+<script>
+function showAdjustments() {
+  const modal = document.getElementById("adjustments-modal");
+  modal.style.display = modal.style.display === "none" ? "block" : "none";
+}
+</script>
