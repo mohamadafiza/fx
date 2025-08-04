@@ -313,12 +313,12 @@ SOY - 0.03 (dollar per bushel eg. 10.50)
                     // Case 1: DB-PDB✅ DB-YVB✅ DS-PDS✅ DS-YVS❌
                     else if (db_pdb && db_yvb && ds_pds && !ds_yvs) {
                         valid = true;
-                        output = 'Valid Buy – TP di RLine (H1) / TP RP(H4)';
+                        output = 'Valid Buy – TP di RLine (H4) / TP RP(H1)';
                     }
                     // Case 2: DB-PDB✅ DB-YVB❌ DS-PDS✅ DS-YVS❌
                     else if (db_pdb && !db_yvb && ds_pds && !ds_yvs) {
                         valid = true;
-                        output = 'Valid Buy – TP di RLine (H1) / TP RP(H4)';
+                        output = 'Valid Buy – TP di RLine (H4) / TP RP(H1)';
                     }
                 }
                 else if (position === 'sell') {
@@ -336,12 +336,12 @@ SOY - 0.03 (dollar per bushel eg. 10.50)
                     // Case 1: DB-PDB✅ DB-YVB❌ DS-PDS✅ DS-YVS✅
                     else if (db_pdb && !db_yvb && ds_pds && ds_yvs) {
                         valid = true;
-                        output = 'Valid Sell – TP di RLine (H1) / TP RP(H4)';
+                        output = 'Valid Sell – TP di RLine (H4) / TP RP(H1)';
                     }
                     // Case 2: DB-PDB✅ DB-YVB❌ DS-PDS✅ DS-YVS❌
                     else if (db_pdb && !db_yvb && ds_pds && !ds_yvs) {
                         valid = true;
-                        output = 'Valid Sell – TP di RLine (H1) / TP RP(H4)';
+                        output = 'Valid Sell – TP di RLine (H4) / TP RP(H1)';
                     }
                 }
             }
